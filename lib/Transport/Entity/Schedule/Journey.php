@@ -45,6 +45,14 @@ class Journey
      */
     public $capacity2nd = null;
 
+    public $bgColor = null;
+    public $textColor = null;
+
+
+    static private function parseColors(Journey $obj) {
+
+    }
+
     static public function createFromXml(\SimpleXMLElement $xml, \DateTime $date, Journey $obj = null)
     {
         if (!$obj) {
@@ -102,6 +110,7 @@ class Journey
         if (count($capacities2nd) > 0) {
             $obj->capacity2nd = max($capacities2nd);   
         }
+
 
         return $obj;
     }

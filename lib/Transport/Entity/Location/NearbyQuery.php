@@ -12,7 +12,7 @@ class NearbyQuery
 
     public $limit;
 
-    public function __construct($lat, $lon, $limit = 10)
+    public function __construct($lat, $lon, $limit = 12)
     {
         $this->lat = $lat;
         $this->lon = $lon;
@@ -26,7 +26,7 @@ class NearbyQuery
             'tpl' => 'stop2json',
             'look_maxno' => $this->limit,
             'look_stopclass' => 1023, // all, 1<<10 - 1
-            'look_maxdist' => 5000,
+            'look_maxdist' => 4000000000,
             'look_y' => Coordinate::floatToInt($this->lat),
             'look_x' => Coordinate::floatToInt($this->lon),
         );
