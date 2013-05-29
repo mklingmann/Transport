@@ -100,6 +100,13 @@ class StationBoardJourney extends Journey
                 '680' => array('bg' => 'ffcc00', 'text' => '000000'), //Winterthur
             ),
             'other' => array (
+                'TGV' => array('bg' => 'ff0000', 'text' => 'ffffff'),
+                'ICN' => array('bg' => 'ff0000', 'text' => 'ffffff'), 
+                'ICE' => array('bg' => 'ff0000', 'text' => 'ffffff'),
+                'IC' => array('bg' => 'ff0000', 'text' => 'ffffff'),
+                'EC' => array('bg' => 'ff0000', 'text' => 'ffffff'),
+                'IR' => array('bg' => 'ff0000', 'text' => 'ffffff'),
+                'RE' => array('bg' => 'ffffff', 'text' => 'ff0000'), //Schaffhausen
                 'S24' => array('bg' => '005394', 'text' => 'ffffff'), //Zürich                
                 'S26' => array('bg' => '005394', 'text' => 'ffffff'), //Winterthur                
                 'SN9' => array('bg' => '000000', 'text' => 'f6ff00'), //Zürich                
@@ -113,7 +120,6 @@ class StationBoardJourney extends Journey
                 'SN7' => array('bg' => '000000', 'text' => 'f6ff00'), //Bassersdorf
                 '809' => array('bg' => 'ffcc00', 'text' => '000000'), //Bauma
                 '835' => array('bg' => 'ffcc00', 'text' => '000000'), //Bauma
-                'IC' => array('bg' => 'ff0000', 'text' => 'ffffff'), //Bern
                 '625' => array('bg' => 'ffcc00', 'text' => '000000'), //Bichelsee
                 'N22' => array('bg' => '000000', 'text' => 'f6ff00'), //Birmensdorf
                 '205' => array('bg' => 'ffcc00', 'text' => '000000'), //Bonstetten-Wettswil
@@ -129,8 +135,7 @@ class StationBoardJourney extends Journey
                 'N53' => array('bg' => '000000', 'text' => 'f6ff00'), //Bülach
                 '502' => array('bg' => 'ffcc00', 'text' => '000000'), //Bülach
                 '503' => array('bg' => 'ffcc00', 'text' => '000000'), //Bülach
-                'EC' => array('bg' => 'ff0000', 'text' => 'ffffff'), //Chur
-                'IR' => array('bg' => 'ff0000', 'text' => 'ffffff'), //Chur
+                
                 'S33' => array('bg' => '005394', 'text' => 'ffffff'), //Dachsen
                 'S16' => array('bg' => '005394', 'text' => 'ffffff'), //Dachsen
                 'S11' => array('bg' => '005394', 'text' => 'ffffff'), //Dachsen
@@ -219,7 +224,6 @@ class StationBoardJourney extends Journey
                 '6' => array('bg' => 'ffc121', 'text' => 'ffffff'), //Schaffhausen
                 '1' => array('bg' => '006f3b', 'text' => 'ffffff'), //Schaffhausen
                 '3' => array('bg' => 'd8531d', 'text' => 'ffffff'), //Schaffhausen
-                'RE' => array('bg' => 'ffffff', 'text' => 'ff0000'), //Schaffhausen
                 '8' => array('bg' => '594598', 'text' => 'ffffff'), //Schaffhausen
                 '555' => array('bg' => 'ffcc00', 'text' => '000000'), //Schleinikon
                 'N30' => array('bg' => '000000', 'text' => 'f6ff00'), //Schlieren
@@ -229,7 +233,6 @@ class StationBoardJourney extends Journey
                 '137' => array('bg' => 'ffcc00', 'text' => '000000'), //Sihlwald
                 'S4' => array('bg' => '005394', 'text' => 'ffffff'), //Sihlwald
                 '807' => array('bg' => 'ffcc00', 'text' => '000000'), //Sitzberg
-                'ICN' => array('bg' => 'ff0000', 'text' => 'ffffff'), //St. Gallen
                 'SN' => array('bg' => '000000', 'text' => 'f6ff00'), //St. Margrethen
                 '515' => array('bg' => 'ffcc00', 'text' => '000000'), //Stadel bei Niederglatt
                 'SN3' => array('bg' => '000000', 'text' => 'f6ff00'), //Stein am Rhein
@@ -285,7 +288,7 @@ class StationBoardJourney extends Journey
         $obj->stop = Stop::createFromXml($xml->MainStop->BasicStop, $date, null);
 
         $line = $obj->category;
-        if ( preg_match('/Tram|Bus|Tro/', $obj->category) ) {
+        if ( preg_match('/Tram|T|NFT|Bus|NFB|Tro/', $obj->category) ) {
             $line = $obj->number;
         }
 
