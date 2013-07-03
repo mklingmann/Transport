@@ -121,8 +121,9 @@ $app->get('/v1/locations', function(Request $request) use ($app) {
 
     $x = $request->get('x') ?: null;
     $y = $request->get('y') ?: null;
+    $limit = $request->get('limit') ?: 12;
     if ($x && $y) {
-        $query = new NearbyQuery($x, $y);
+        $query = new NearbyQuery($x, $y, $limit);
         $stations = $app['api']->findNearbyLocations($query);
     }
 
