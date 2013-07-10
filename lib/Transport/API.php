@@ -135,6 +135,7 @@ class API
 
         // fix broken JSON
         $content = $response->getContent();
+        $content = str_replace('\\', '', $content); // remove backslashes
         $content = preg_replace('/(\w+) ?:/i', '"\1":', $content);
 
         // parse result
